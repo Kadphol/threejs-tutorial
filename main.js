@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import WebGL from 'three/addons/capabilities/WebGL.js'
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
@@ -25,4 +26,15 @@ function animate() {
   cube.rotation.y += 0.01
 
   renderer.render(scene, camera)
+}
+
+if (WebGL.isWebGL2Available()) {
+  console.log('WebGL 2 is available')
+  // Initiate function or other initializations here
+  animate()
+} else {
+  console.log('WebGL 2 is not available')
+  // Handle the case where WebGL 2 is not available
+  const warning = WebGL.getWebGL2ErrorMessage()
+  document.getElementById('container').appendChild(warning)
 }
