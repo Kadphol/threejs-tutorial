@@ -15,3 +15,7 @@ npx vite
 ```
 
 enter `localhost:5173` in browser
+
+- index: `localhost:5173`
+- line: `localhost:5173/line/`
+- mesh: `localhost:5173/mesh/`
