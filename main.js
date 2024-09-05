@@ -17,13 +17,17 @@ document.body.appendChild(renderer.domElement)
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
 const cube = new THREE.Mesh(geometry, material)
+const object = new THREE.Object3D()
 scene.add(cube)
+scene.add(object)
 
 camera.position.z = 5
 
 function animate() {
   cube.rotation.x += 0.01
   cube.rotation.y += 0.01
+  object.matrixAutoUpdate = false
+  object.updateMatrix()
 
   renderer.render(scene, camera)
 }
